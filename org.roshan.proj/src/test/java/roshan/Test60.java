@@ -1,0 +1,29 @@
+package roshan;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Test60 
+{
+	public static void main(String[] args) throws Exception
+	{
+		//HANDLING FRAME IN PAGE
+		//open browser
+		WebDriverManager.chromedriver().setup();
+		RemoteWebDriver driver=new ChromeDriver();
+		//maximize browser
+		driver.manage().window().maximize();
+		//open site
+		driver.get("https://chercher.tech/practice/frames");
+		Thread.sleep(3000);
+		//go to frame
+		driver.switchTo().frame(0); //1st frame in page
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Roshan Kumar");
+		driver.switchTo().defaultContent(); //back to page
+		//driver.close();
+        //driver.close();
+	}
+}
